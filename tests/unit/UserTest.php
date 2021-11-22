@@ -1,24 +1,30 @@
 <?php
+namespace Tests\unit;
 
 class UserTest extends \PHPUnit\Framework\TestCase
 {
 
+    protected $user;
+
+    public function setUp(): void
+    {
+        $this->user = new \App\Models\User;
+    }
+
     public function test_that_we_can_get_the_first_name()
     {
-        $user = new \App\Models\User;
 
-        $user->setFirstName('jack');
+        $this->user->setFirstName('jack');
 
-        $this->assertEquals('jack', $user->getFirstName());
+        $this->assertEquals('jack', $this->user->getFirstName());
     }
 
     public function test_that_we_can_get_the_last_name()
     {
-        $user = new \App\Models\User;
 
-        $user->setLastName('thuo');
+        $this->user->setLastName('thuo');
 
-        $this->assertEquals('thuo', $user->getlastName());
+        $this->assertEquals('thuo', $this->user->getlastName());
     }
 
     public function test_full_name_is_returned()
